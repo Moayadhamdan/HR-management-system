@@ -1,0 +1,115 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+#employee-list {
+    padding: 20px;
+}
+
+img {
+    width: 200px;
+    height: 200px; 
+    object-fit: cover; 
+}
+
+#employee-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.employee-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px); 
+    box-sizing: border-box;
+}
+
+.employee-info img {
+    width: 100%; 
+    border-radius: 5px;
+}
+
+.employee-info h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.employee-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.employee-info p.salary {
+    font-weight: bold;
+}
+
+.employee-info p.net-salary {
+    color: green;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .employee-info {
+        width: calc(50% - 20px);  
+    }
+}
+
+@media (max-width: 480px) {
+    .employee-info {
+        width: 100%; 
+    }
+}
+
