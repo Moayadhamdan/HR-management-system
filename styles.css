@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -51,24 +50,16 @@ footer ul li a {
 
 
 
-#employee-list {
-    padding: 20px;
-}
 
-img {
+/* img {
     width: 200px;
     height: 200px; 
     object-fit: cover; 
-}
+} */
 
-#employee-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-}
 
-.employee-info {
+
+/* .employee-info {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 5px;
@@ -98,10 +89,10 @@ img {
 
 .employee-info p.net-salary {
     color: green;
-}
+} */
 
 /* Responsive styles */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .employee-info {
         width: calc(50% - 20px);  
     }
@@ -111,5 +102,102 @@ img {
     .employee-info {
         width: 100%; 
     }
+} */
+#employee-list{
+    border:solid;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+    
 }
 
+#employee-list img{
+    width: 200px;
+}
+
+/* .card {
+    border-radius: 15px;
+    padding: 10px;
+    background-color: rgba(0, 128, 0, 0.558);
+    width:max-content;
+    text-align: center;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.card img {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.card-content p {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.emps {
+    display: inline-block;
+} */
+.card-list{
+    background-color:green;
+    border: green;
+    margin: 20px;
+    padding: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:large;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start; 
+}
+
+#employee-form {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+#employee-form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#employee-form legend {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#employee-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#employee-form input[type="text"],
+#employee-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#employee-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#employee-form button:hover {
+    background-color: #45a049;
+}

@@ -7,6 +7,11 @@ function Employee(employeeId, fullName, department, level, imageUrl) {
     this.salary = this.calculateSalary();
     this.netSalary = this.calculateNetSalary();
 }
+
+function generateEmployeeId() {
+    return Math.floor(1000 + Math.random() * 9000);
+}
+
 Employee.prototype.calculateSalary = function() {
     let minSalary, maxSalary;
     switch (this.level) {
@@ -35,25 +40,52 @@ Employee.prototype.calculateNetSalary = function() {
 Employee.prototype.render = function() {
     const employeeList = document.getElementById('employee-list');
     const employeeInfo = document.createElement('div');
+    employeeInfo.classList.add('card-list')
+    //stayle===========================
+    // employeeInfo.id = "content";
+    // employeeInfo.style.border ="solid";
+    // employeeInfo.style.display="inline-block";
     employeeInfo.innerHTML = `
-        <div>
+        
             <img src="${this.imageUrl}" alt="${this.fullName}">
             <h2>${this.fullName}</h2>
+            <p>Employee ID: ${this.employeeId}</p>
             <p>Department: ${this.department}</p>
             <p>Level: ${this.level}</p>
             <p>Salary: $${this.salary.toFixed(2)}</p>
             <p>Net Salary: $${this.netSalary.toFixed(2)}</p>
-        </div>
+        
     `;
     employeeList.appendChild(employeeInfo);
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('employee-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const fullName = document.getElementById('fullName').value;
+        const department = document.getElementById('department').value;
+        const level = document.getElementById('level').value;
+        const imageUrl = document.getElementById('imageUrl').value;
+
+        const employeeId = generateEmployeeId();
+        const newEmployee = new Employee(employeeId, fullName, department, level, imageUrl);
+        newEmployee.render();
+
+        
+        form.reset();
+    });
+});
+
+
 const employees = [
-    new Employee(1000, 'Ghazi Samer', 'Administration', 'Senior', 'https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg'),
-    new Employee(1001, 'Lana Ali', 'Finance', 'Senior', 'https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg'),
-    new Employee(1002, 'Tamara Ayoub', 'Marketing', 'Senior', 'https://static.vecteezy.com/system/resources/previews/002/002/257/non_2x/beautiful-woman-avatar-character-icon-free-vector.jpg'),
-    new Employee(1003, 'Safi Walid', 'Administration', 'Mid-Senior', 'https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg'),
-    new Employee(1004, 'Omar Zaid', 'Development', 'Senior', 'https://previews.123rf.com/images/metelsky/metelsky1904/metelsky190400021/121859823-male-avatar-icon-or-portrait-handsome-young-man-face-with-beard-vector-illustration.jpg'),
-    new Employee(1005, 'Rana Saleh', 'Development', 'Junior', 'https://static.vecteezy.com/system/resources/previews/002/002/297/non_2x/beautiful-woman-avatar-character-icon-free-vector.jpg'),
-    new Employee(1006, 'Hadi Ahmad', 'Finance', 'Mid-Senior', 'https://static.vecteezy.com/system/resources/previews/024/183/535/original/male-avatar-portrait-of-a-young-man-with-glasses-illustration-of-male-character-in-modern-color-style-vector.jpg')
+    new Employee(4847, 'Ghazi Samer', 'Administration', 'Senior', 'assets/Ghazi.jpg'),
+    new Employee(3548, 'Lana Ali', 'Finance', 'Senior', 'assets/Lana.jpg'),
+    new Employee(9868, 'Tamara Ayoub', 'Marketing', 'Senior', 'assets/Tamara.jpg'),
+    new Employee(2412, 'Safi Walid', 'Administration', 'Mid-Senior', 'assets/Safi.jpg'),
+    new Employee(2875, 'Omar Zaid', 'Development', 'Senior', 'assets/Omar.jpg'),
+    new Employee(8879, 'Rana Saleh', 'Development', 'Junior', 'assets/Rana.jpg'),
+    new Employee(5024, 'Hadi Ahmad', 'Finance', 'Mid-Senior', 'assets/Hadi.jpg')
 ];
 employees.forEach(employee => employee.render());

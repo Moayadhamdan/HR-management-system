@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR-management-system</title>
     <link rel="stylesheet" href="styles.css">
-
+    
 </head>
 <body>
     
@@ -17,9 +17,40 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <div id="employee-list"></div>
+    <main class="card">
+        <div id="employee-list">
+            <!-- <div id="employee-card"></div> -->
+        </div>
     </main>
+    <div>
+        <form id="employee-form">
+            <fieldset>
+                <legend>Add Employee</legend>
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required><br><br>
+            
+            <label for="department">Department:</label>
+            <select id="department" name="department">
+                <option value="Administration">Administration</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Development">Development</option>
+                <option value="Finance">Finance</option>
+            </select><br><br>
+            
+            <label for="level">Level:</label>
+            <select id="level" name="level">
+                <option value="Junior">Junior</option>
+                <option value="Mid-Senior">Mid-Senior</option>
+                <option value="Senior">Senior</option>
+            </select><br><br>
+            
+            <label for="imageUrl">Image URL:</label>
+            <input type="text" id="imageUrl" name="imageUrl" required><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     <footer>
         <ul>
             <li><a href="https://www.facebook.com/">Facebook</a></li>
@@ -28,6 +59,7 @@
         </ul>
         <p>&copy; 2024 HR-management-system by Moayad Hamdan</p>
     </footer>
+    
     <script src="./app.js"></script>   
 </body>
 </html>
