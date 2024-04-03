@@ -174,3 +174,36 @@ section h2 {
     margin-bottom: 10px;
     
 }
+ 
+
+
+#accounting-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#accounting-table th, #accounting-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+#accounting-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#accounting-table tfoot {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+#accounting-table tfoot td {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+    background-color: #f2f2f2;
+}

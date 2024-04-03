@@ -1,3 +1,45 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('employee-form');
+    const employeeList = document.getElementById('employee-list');
+    const employeesKey = 'employees';
+
+    let employees = JSON.parse(localStorage.getItem(employeesKey)) || [];
+
+    function saveEmployees() {
+        localStorage.setItem(employeesKey, JSON.stringify(employees));
+    }
+
+    function renderEmployee(employee) {
+        const departmentSection = document.getElementById(employee.department.toLowerCase());
+        const employeeInfo = document.createElement('div');
+        employeeInfo.classList.add('card-list');
+        employeeInfo.innerHTML = `
+            <img src="${employee.imageUrl}" alt="${employee.fullName}">
+            <h2>Name: ${employee.fullName} - ID: ${employee.employeeId}</h2>
+            <p>Department: ${employee.department} - Level: ${employee.level}</p>
+            <p>Salary: $${employee.salary.toFixed(2)} - Net Salary: $${employee.netSalary.toFixed(2)}</p>
+        `;
+        departmentSection.appendChild(employeeInfo);
+    }
+
+    employees.forEach(renderEmployee);
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const fullName = document.getElementById('fullName').value;
+        const department = document.getElementById('department').value;
+        const level = document.getElementById('level').value;
+        const imageUrl = document.getElementById('imageUrl').value;
+
+        const newEmployee = new Employee(fullName, department, level, imageUrl);
+        employees.push(newEmployee);
+        saveEmployees();
+        renderEmployee(newEmployee);
+        form.reset();
+    });
+});
+
 function Employee(fullName, department, level, imageUrl) {
     this.employeeId = generateEmployeeId();
     this.fullName = fullName;
@@ -48,45 +90,22 @@ Employee.prototype.render = function() {
         <h2>Name: ${this.fullName} - ID: ${generateEmployeeId()}</h2>
         <p>Department: ${this.department} - Level: ${this.level}</p>
         <p>Salary: $${this.salary.toFixed(2)} - Net Salary: $${this.netSalary.toFixed(2)}</p>
-        
     `;
     employeeList.appendChild(employeeInfo);
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('employee-form');
-    const employeeList = document.getElementById('employee-list');
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+const initialEmployees = [
+    new Employee('Ghazi Samer', 'Administration', 'Senior', 'assets/Ghazi.jpg'),
+    new Employee('Lana Ali', 'Finance', 'Senior', 'assets/Lana.jpg'),
+    new Employee('Tamara Ayoub', 'Marketing', 'Senior', 'assets/Tamara.jpg'),
+    new Employee('Safi Walid', 'Administration', 'Mid-Senior', 'assets/Safi.jpg'),
+    new Employee('Omar Zaid', 'Development', 'Senior', 'assets/Omar.jpg'),
+    new Employee('Rana Saleh', 'Development', 'Junior', 'assets/Rana.jpg'),
+    new Employee('Hadi Ahmad', 'Finance', 'Mid-Senior', 'assets/Hadi.jpg')
+];
 
-        const fullName = document.getElementById('fullName').value;
-        const department = document.getElementById('department').value;
-        const level = document.getElementById('level').value;
-        const imageUrl = document.getElementById('imageUrl').value;
 
-        const employeeId = generateEmployeeId();
-        const newEmployee = new Employee(fullName, department, level, imageUrl);
-
-        const departmentSection = document.getElementById(department.toLowerCase());
-        newEmployee.render();
-        departmentSection.appendChild(employeeList.lastChild);
-
-        form.reset();
-    });
-
-    const employees = [
-        new Employee('Ghazi Samer', 'Administration', 'Senior', 'assets/Ghazi.jpg'),
-        new Employee('Lana Ali', 'Finance', 'Senior', 'assets/Lana.jpg'),
-        new Employee('Tamara Ayoub', 'Marketing', 'Senior', 'assets/Tamara.jpg'),
-        new Employee('Safi Walid', 'Administration', 'Mid-Senior', 'assets/Safi.jpg'),
-        new Employee('Omar Zaid', 'Development', 'Senior', 'assets/Omar.jpg'),
-        new Employee('Rana Saleh', 'Development', 'Junior', 'assets/Rana.jpg'),
-        new Employee('Hadi Ahmad', 'Finance', 'Mid-Senior', 'assets/Hadi.jpg')
-    ];
-    employees.forEach(employee => {
-        const departmentSection = document.getElementById(employee.department.toLowerCase());
-        employee.render();
-        departmentSection.appendChild(employeeList.lastChild);
-    });
-});
+if (!localStorage.getItem('employees')) {
+    localStorage.setItem('employees', JSON.stringify(initialEmployees));
+}
