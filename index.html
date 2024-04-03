@@ -17,40 +17,58 @@
             </ul>
         </nav>
     </header>
+    
     <main class="card">
         <div id="employee-list">
-            <!-- <div id="employee-card"></div> -->
+            
+        </div>
+        <div>
+            <form id="employee-form">
+                <fieldset>
+                    <legend>Add Employee</legend>
+    
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required><br><br>
+                
+                <label for="department">Department:</label>
+                <select id="department" name="department">
+                    <option value="Administration">Administration</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Development">Development</option>
+                    <option value="Finance">Finance</option>
+                </select><br><br>
+                
+                <label for="level">Level:</label>
+                <select id="level" name="level">
+                    <option value="Junior">Junior</option>
+                    <option value="Mid-Senior">Mid-Senior</option>
+                    <option value="Senior">Senior</option>
+                </select><br><br>
+                
+                <label for="imageUrl">Image URL:</label>
+                <input type="text" id="imageUrl" name="imageUrl" required><br><br>
+                
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </main>
-    <div>
-        <form id="employee-form">
-            <fieldset>
-                <legend>Add Employee</legend>
-
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="fullName" required><br><br>
-            
-            <label for="department">Department:</label>
-            <select id="department" name="department">
-                <option value="Administration">Administration</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Development">Development</option>
-                <option value="Finance">Finance</option>
-            </select><br><br>
-            
-            <label for="level">Level:</label>
-            <select id="level" name="level">
-                <option value="Junior">Junior</option>
-                <option value="Mid-Senior">Mid-Senior</option>
-                <option value="Senior">Senior</option>
-            </select><br><br>
-            
-            <label for="imageUrl">Image URL:</label>
-            <input type="text" id="imageUrl" name="imageUrl" required><br><br>
-            
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+        <section id="administration" class="department-section">
+            <h2>Administration :</h2>
+            <br>
+        </section>
+        <section id="marketing" class="department-section">
+            <h2>Marketing :</h2>
+            <br>
+        </section>
+        <section id="development" class="department-section">
+            <h2>Development :</h2>
+            <br>
+        </section>
+        <section id="finance" class="department-section">
+            <h2>Finance :</h2>
+            <br>
+        </section>
+    
     <footer>
         <ul>
             <li><a href="https://www.facebook.com/">Facebook</a></li>
