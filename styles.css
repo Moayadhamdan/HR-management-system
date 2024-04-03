@@ -6,31 +6,139 @@ body {
 
 header {
     background-color: #333;
-    color: #fff;
-    padding: 10px;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
 }
 
 nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+form fieldset {
+    border: none;
+}
+
+form legend {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button[type="submit"] {
+    padding: 10px 20px;
+    background-color:green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: green;
+}
+
+
+.card-list {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(72, 159, 72); 
+    display: inline-block;
+    width: calc(50% - 20px); 
+    margin-right: 20px;
+    vertical-align: top;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    width: 500px;
+}
+
+.card-list img {
+    width: 30%; 
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.card-list h2, .card-list p {
+    text-align: center; 
+    margin: 5px 0;
+}
+
+.card-list p {
+    margin-bottom: 10px; 
+}
+
+.card-list:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+}
+
+
+.department-section {
+    margin-bottom: 20px;
+}
+
+.department-section h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
 footer {
     background-color: #333;
-    color: #fff;
-    padding: 10px;
+    color: white;
     text-align: center;
+    padding: 10px 0;
 }
 
 footer ul {
@@ -44,160 +152,25 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
+footer ul li a:hover {
+    text-decoration: underline;
+}
 
-
-
-/* img {
-    width: 200px;
-    height: 200px; 
-    object-fit: cover; 
-} */
-
-
-
-/* .employee-info {
-    background-color: #f9f9f9;
+section {
+    background-color: #dedede; 
     padding: 20px;
+    margin-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    width: calc(33.33% - 20px); 
-    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.employee-info img {
-    width: 100%; 
-    border-radius: 5px;
-}
-
-.employee-info h2 {
-    margin-top: 10px;
-    font-size: 18px;
-}
-
-.employee-info p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-.employee-info p.salary {
-    font-weight: bold;
-}
-
-.employee-info p.net-salary {
-    color: green;
-} */
-
-/* Responsive styles */
-/* @media (max-width: 768px) {
-    .employee-info {
-        width: calc(50% - 20px);  
-    }
-}
-
-@media (max-width: 480px) {
-    .employee-info {
-        width: 100%; 
-    }
-} */
-#employee-list{
-    border:solid;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+section h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
     
-    
-}
-
-#employee-list img{
-    width: 200px;
-}
-
-/* .card {
-    border-radius: 15px;
-    padding: 10px;
-    background-color: rgba(0, 128, 0, 0.558);
-    width:max-content;
-    text-align: center;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-
-.card img {
-    width: 250px;
-    margin: 0 auto;
-}
-
-.card-content p {
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 600;
-    margin: 8px 0;
-}
-
-.emps {
-    display: inline-block;
-} */
-.card-list{
-    background-color:green;
-    border: green;
-    margin: 20px;
-    padding: 20px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size:large;
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start; 
-}
-
-#employee-form {
-    max-width: 1450px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-}
-
-#employee-form fieldset {
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
-#employee-form legend {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#employee-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#employee-form input[type="text"],
-#employee-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#employee-form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#employee-form button:hover {
-    background-color: #45a049;
 }
